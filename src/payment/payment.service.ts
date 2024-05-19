@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Payment } from '../schemas/payment.schema';
 import { CreatePaymentDto } from '../dto/create-payment.dto';
-import { UpdatePaymentDto } from '../dto/update-payment.dto';
+import { PaymentDto } from '../dto/payment.dto';
 
 @Injectable()
 export class PaymentService {
@@ -19,7 +19,7 @@ export class PaymentService {
   }
   async update(
     id: string,
-    updatePaymentDto: UpdatePaymentDto,
+    updatePaymentDto: PaymentDto,
   ): Promise<Payment> {
     return this.paymentModel
       .findOneAndUpdate({ id }, updatePaymentDto, { new: true })

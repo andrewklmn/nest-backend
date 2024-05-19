@@ -1,46 +1,58 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNumber, IsMongoId, IsDateString } from 'class-validator';
+import {
+  IsOptional,
+  IsString,
+  IsNumber,
+  IsMongoId,
+  IsDateString,
+} from 'class-validator';
 
-export class CreatePaymentDto {
+export class PaymentDto {
   @ApiProperty({
     example: 'id',
     required: true,
   })
+  @IsOptional()
   @IsMongoId()
-  readonly _id: string;
+  readonly _id?: string;
 
   @ApiProperty({
     example: '2024-01-01',
     required: true,
   })
+  @IsOptional()
   @IsDateString()
-  readonly createdAt: string;
+  readonly createdAt?: string;
 
   @ApiProperty({
     example: 'id',
     required: true,
   })
+  @IsOptional()
   @IsMongoId()
-  readonly userId: string;
+  readonly userId?: string;
 
   @ApiProperty({
     example: 1000,
     required: true,
   })
+  @IsOptional()
   @IsNumber()
-  readonly income: number;
+  readonly income?: number;
 
   @ApiProperty({
     example: 0,
     required: true,
   })
+  @IsOptional()
   @IsNumber()
-  readonly expence: number;
+  readonly expence?: number;
 
   @ApiProperty({
     example: 'comment',
     required: true,
   })
+  @IsOptional()
   @IsString()
-  readonly comment: string;
+  readonly comment?: string;
 }
